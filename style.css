@@ -1,0 +1,499 @@
+:root {
+  --bg: #000000;
+  --panel: #0b0b0b;
+  --accent: #ff8c1a;
+  --text: #ffffff;
+  --muted: #9a9a9a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.9);
+  border-bottom: 1px solid rgba(255,140,26,0.3);
+  z-index: 100;
+}
+
+.logo img {
+  height: 34px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li {
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.nav-links li:hover {
+  color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  padding-top: 96px;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px;
+  text-align: center;
+}
+
+/* TIMELINE */
+.timeline {
+  overflow-x: auto;
+  margin-bottom: 24px;
+}
+
+.timeline-track {
+  display: inline-flex;
+  gap: 24px;
+}
+
+.timeline span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.timeline .active {
+  color: var(--accent);
+}
+
+/* TEXT */
+.present {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: 6px;
+  margin: 12px 0;
+  animation: glitch 2.5s infinite;
+}
+
+.tagline {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* GLITCH */
+@keyframes glitch {
+  0% { text-shadow: 2px 0 var(--accent), -2px 0 cyan; }
+  25% { text-shadow: -2px 0 var(--accent), 2px 0 cyan; }
+  50% { text-shadow: 2px 2px var(--accent), -2px -2px cyan; }
+  75% { text-shadow: -2px -2px var(--accent), 2px 2px cyan; }
+  100% { text-shadow: none; }
+}
+
+/* TIMER */
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 36px 0;
+  flex-wrap: wrap;
+}
+
+.timer > div {
+  background: var(--panel);
+  border: 1px solid rgba(255,140,26,0.3);
+  padding: 14px 18px;
+}
+
+.timer span {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.timer small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+/* SNAPSHOTS */
+.snapshots {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.snapshot {
+  background: var(--panel);
+  border: 1px solid rgba(255,140,26,0.25);
+  padding: 10px;
+  width: 220px;
+}
+
+.snapshot img {
+  width: 100%;
+  filter: grayscale(100%) contrast(120%);
+}
+
+.snapshot p {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 36px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+button {
+  padding: 14px 28px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+button.primary {
+  background: var(--accent);
+  color: #000;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1px;
+
+    margin-left: auto;
+    padding-right: 10px;
+    margin-top: -8px;
+
+    width: auto;              /* 🔥 KEY FIX */
+    max-width: 100%;          /* 🔥 KEY FIX */
+
+    overflow-x: auto; 
+    white-space: nowrap;
+
+    scrollbar-width: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 14px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 50px !important;
+    line-height: 1.15 !important;
+    letter-spacing: 1.5px;
+    padding: 0 6px;
+    word-break: break-word;
+    font-size: 20px;
+  }
+
+.snapshots {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px;
+    padding: 20px 16px;
+    align-items: center;
+  }
+
+  .snapshot {
+    width: 100% !important;
+    max-width: 360px;
+  }
+
+  .snapshot img {
+    width: 100%;
+    height: auto;
+  }
+
+  .snapshot p {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+
+  .buttons {
+    flex-direction: column;
+  }
+}
+.hero-inner {
+  animation: heroEnter 1.2s ease-out forwards;
+}
+
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+button {
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+.snapshot {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.snapshot:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(255,140,26,0.15);
+}
+.timeline .active {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scan 6s linear infinite;
+}
+/* TIMELINE CONTAINER */
+.timeline {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border-top: 1px solid rgba(255,140,26,0.2);
+  border-bottom: 1px solid rgba(255,140,26,0.2);
+}
+
+/* MOVING STRIP */
+.timeline-track {
+  margin-top: 10px;
+  display: inline-flex;
+  gap: 32px;
+  padding: 10px 0;
+  animation: rewind 25s linear infinite;
+}
+
+/* YEARS */
+.timeline span {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* HIGHLIGHT 2016 */
+.timeline .active {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* BACKWARD ANIMATION */
+@keyframes rewind {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scan {
+  from { background-position: 0 0; }
+  to { background-position: 0 100px; }
+}
+@media (max-width: 768px) {
+  .snapshot:hover,
+  button:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 56px;
+  }
+
+  .nav-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Logo stays visible */
+  .logo {
+    flex-shrink: 0;
+    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo img {
+    height: 28px;
+    width: auto;
+    
+  }
+
+
+
+}
+
+ 
+
+  .tagline {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  /* ---------- TIMER ---------- */
+  .timer {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .timer span {
+    font-size: 22px;
+  }
+
+
+
+  /* ---------- BUTTONS ---------- */
+  .buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 14px;
+    padding: 14px;
+  }
+
+/* ---------- VERY SMALL PHONES (EXTRA SAFETY) ---------- */
+@media (max-width: 360px) {
+
+  .hero-title {
+    font-size: 24px !important;
+  }
+
+  .nav-links li {
+    font-size: 12px;
+  }
+
+  .timer span {
+    font-size: 20px;
+  }
+}
+/* ---------- TIMELINE: MOBILE REPRESENTATION ---------- */
+
+/* =========================================
+   MOBILE FIX: Reduce navbar + hero gap
+========================================= */
+@media (max-width: 768px) {
+
+  /* NAVBAR: reduce height */
+  .navbar {
+    padding: 6px 12px;
+    min-height: auto;
+  }
+
+  .logo img {
+    height: 24px;
+  }
+
+  /* HERO: remove excessive top padding */
+  .hero {
+    padding-top: 24px !important;  /* was 96px */
+    padding-bottom: 24px;
+  }
+
+  /* TIMELINE: pull it upward */
+  .timeline {
+    margin-top: 8px;
+  }
+
+  /* Title spacing */
+  .hero-title {
+    margin-top: 10px;
+    font-size: 34px;
+  }
+
+  /* Subtitle */
+  .tagline {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+}
+
